@@ -18,8 +18,8 @@ Graph.prototype.normalizedData = function() {
 Graph.prototype.plotGraph = function(cvas, width, height) {
   cvas.width = width;
   cvas.height = height;
-  var fontConstant = 50;
-  var labelConstant = 50;
+  var fontConstant = Math.floor(0.05*height);
+  var labelConstant = Math.floor(0.06*height);
   height=height-fontConstant-labelConstant; //For text and stuff ABOVE the actual height
   var ctx = cvas.getContext("2d");
   var normalizedDataset = this.normalizedData();
@@ -30,14 +30,16 @@ Graph.prototype.plotGraph = function(cvas, width, height) {
     ctx.fillStyle=color;
     ctx.fillRect(i*perBarWidth, (fontConstant+height-(height*normalizedDataset[i])), perBarWidth, height*normalizedDataset[i]);
     ctx.textAlign = "center";
-    ctx.fillText(""+(this.dataset[i]), Math.floor((i+0.5) * perBarWidth), (fontConstant-10+height-(height*normalizedDataset[i])));
-    ctx.fillText(""+(this.fields[i]), Math.floor((i+0.5) * perBarWidth), (fontConstant+labelConstant+(height)));
+    ctx.font =0.7*fontConstant+"pt sans";
+    ctx.fillText(""+(this.dataset[i]), Math.floor((i+0.5) * perBarWidth), (0.9*fontConstant+height-(height*normalizedDataset[i])));
+    ctx.fillText(""+(this.fields[i]), Math.floor((i+0.5) * perBarWidth), (0.9*fontConstant+0.9*labelConstant+(height)));
   }
 }
 
 function test(){
-  var d = [10, 19, 20, 2, 3, 8.0, 9.7, 8.34];
-  var f = ['timeless', 'tradefree', 'teign', 'lessthat', 'ticktock', 'reimann', 'feynman', 'lolilike'];
+  var d = [10, 19, 20, 2];
+  var f = ['Category A', 'Category B', 'Category C', 'Category D'];
   var g = new Graph(d,f);
-  g.plotGraph(document.getElementById("t"), window.innerWidth,400);
+  g.plotGraph(document.getElementById("expGraph"), Math.floor(window.innerWidth/1.01),Math.floor(window.innerHeight/1.4));
+  assignColors(f);
 }

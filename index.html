@@ -1,0 +1,21 @@
+<html>
+<head>
+  <script src="main.js"></script>
+  <script src="graph.js"></script>
+  <link rel="stylesheet" href="styles/styles.css">
+  <script>
+    window.onload = test;
+  </script>
+</head>
+<body>
+  <canvas id="expGraph"></canvas>
+  <div id="detailsPanel">
+    View detailed spending for -
+    <a href="/details?cat=a" id="categorya">Category A</a>
+    <a href="/details?cat=b" id="categoryb">Category B</a>
+    <a href="/details?cat=c" id="categoryc">Category C</a>
+    <a href="/details?cat=d" id="categoryd">Category D</a>
+  </div>
+  <a href="/add" id="add">Add New Expense</a>
+</body>
+</html>

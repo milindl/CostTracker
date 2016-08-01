@@ -1,0 +1,38 @@
+body {
+  margin:0px;
+  font-face:Verdana;
+}
+canvas {
+  margin:0px;
+  padding:0px;
+}
+
+div {
+  display: block;
+  width:100%;
+  margin: 0 auto;
+  text-align: center;
+}
+div#detailsPanel {
+  margin-top:1em;
+  margin-bottom: 1em;
+}
+
+
+a {
+  display: block;
+  text-align: center;
+  background-color: #add;
+  width:100%;
+  color:white;
+  text-decoration: none;
+  padding-top:10px;
+  font-weight: bold;
+  padding-bottom:10px;
+  margin-top:2px;
+  margin-bottom:2px;
+}
+
+a#add {
+  color:black;
+}
