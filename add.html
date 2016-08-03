@@ -4,18 +4,21 @@
   <script src="main.js"></script>
   <script>
     window.onload=function() {assignColors(["Category A", "Category B", "Category C", "Category D"]);};
+    function submitForm(formId) {
+      document.getElementById(formId).submit();
+    }
   </script>
 </head>
 <body>
-  <form name="addForm" method="get" action="/add">
+  <form name="addForm" method="get" action="/add" id="addForm">
     <label>Remarks:<br><input type = "text" name="remarks" /></label>
     <label>Amount:<br><input type = "number" name="amount" /></label>
     <label>Category:</label>
-    <label id="categorya" class="catlabel"><input class = "category" type = "radio" name="category" value="categorya"/>Category A</label>
-    <label id="categoryb" class="catlabel"><input class = "category" type = "radio" name="category" value="categoryb"/>Category B</label>
-    <label id="categoryc" class="catlabel"><input class = "category" type = "radio" name="category" value="categoryc"/>Category C</label>
-    <label id="categoryd" class="catlabel"><input class = "category" type = "radio" name="category" value="categoryd"/>Category D</label>
-    <input type="submit" value="Add" id="submit"/>
+    <label id="categorya" class="catlabel"><input class = "category" type = "radio" name="category" value="categorya" onclick="submitForm('addForm');"/>Category A</label>
+    <label id="categoryb" class="catlabel"><input class = "category" type = "radio" name="category" value="categoryb" onclick="submitForm('addForm');"/>Category B</label>
+    <label id="categoryc" class="catlabel"><input class = "category" type = "radio" name="category" value="categoryc" onclick="submitForm('addForm');"/>Category C</label>
+    <label id="categoryd" class="catlabel"><input class = "category" type = "radio" name="category" value="categoryd" onclick="submitForm('addForm');"/>Category D</label>
+    <!-- <input type="submit" value="Add" id="submit"/> -->
   </form>
 </body>
 </html>
