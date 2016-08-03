@@ -36,3 +36,21 @@ a {
 a#add {
   color:black;
 }
+
+label {
+  @extend a;
+  color:black;
+}
+label.catlabel {
+  color:white;
+}
+input.category {
+  display:none;
+}
+input#submit {
+  @extend label;
+  border:0px;
+}
+input {
+  width:90%;
+}
