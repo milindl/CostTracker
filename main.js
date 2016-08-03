@@ -20,3 +20,11 @@ function loadFile(filename, mimetype, cbk) {
   xhr.send(null);
 
 }
+
+function loadPartial(templatePath, dataPath, insertionElement) {
+  loadFile(dataPath,"application/json", function(response) {
+    var jsonresponse = JSON.parse(response);
+    var text = new EJS({url: templatePath}).render(jsonresponse);
+    insertionElement.innerHTML += html;
+  });
+}
