@@ -6,3 +6,17 @@ function assignColors(fields) {
     a.style.backgroundColor = color;
   }
 }
+
+function loadFile(filename, mimetype, cbk) {
+
+  var xhr = new XMLHttpRequest();
+  xhr.overrideMimeType(mimetype);
+  xhr.open('GET', filename, true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == "200") {
+      cbk(xhr.responseText);
+    }
+  }
+  xhr.send(null);
+
+}
