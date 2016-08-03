@@ -25,6 +25,21 @@ exports.load = function(cback) {
     cback(loadedFile);
   });
 };
+
+//Let's define some filters
+
+exports.filterCategoryValue = function(rawArray) {
+  var finalArray = {};
+  // console.log(finalArray);
+  for(var i=0; i!=rawArray.length; i++) {
+    if(!finalArray[rawArray[i]['category']]) {
+      finalArray[rawArray[i]['category']] = 0;
+    }
+    finalArray[rawArray[i]['category']]+=rawArray[i]['amount'];
+
+  }
+  return finalArray;
+}
 // exports.load(function(t) {
 //   console.log(t);
 // })
