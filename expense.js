@@ -1,4 +1,4 @@
-function Expense(amount, remarks, category, date) {
+var Expense = function(amount, remarks, category, date) {
   this.amount = amount;
   this.remarks = remarks;
   this.category = category;
@@ -31,10 +31,17 @@ Expense.categorize = function(expenseList, cat) {
   }
   return finalList;
 };
+var canUseDOM = !!(
+  (typeof window !== 'undefined' &&
+  window.document && window.document.createElement)
+);
+if(!canUseDOM) {
+  exports.Expense = Expense;
+}
 
 // Test code
-var e = [];
-e.push(new Expense(1,"hi", "C"));
-e.push(new Expense(11,"h2i", "C"));
-e.push(new Expense(12,"hisa", "B"));
-console.log(Expense.load("1/8/2016$45$FnB$Juice").date.getDay())
+// var e = [];
+// e.push(new Expense(1,"hi", "C"));
+// e.push(new Expense(11,"h2i", "C"));
+// e.push(new Expense(12,"hisa", "B"));
+// console.log(Expense.load("1/8/2016$45$FnB$Juice").date.getDay())
