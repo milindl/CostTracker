@@ -1,0 +1,33 @@
+<html>
+<head>
+  <script src="main.js"></script>
+  <script src="graph.js"></script>
+  <script type="text/javascript" src="ejs.js"></script>
+  <link rel="stylesheet" href="styles/styles.css">
+  <script>
+
+  </script>
+</head>
+<body>
+  <canvas id="expGraph"></canvas>
+  <div id="detailsPanel">
+    View detailed spending for -
+    <!-- <a href="/details?cat=categorya" id="categorya">Category A</a>
+    <a href="/details?cat=b" id="categoryb">Category B</a>
+    <a href="/details?cat=c" id="categoryc">Category C</a>
+    <a href="/details?cat=d" id="categoryd">Category D</a> -->
+  </div>
+  <a href="/add.html" id="add">Add New Expense</a>
+  <script>
+
+  loadFile("categories.json","application/json", function(response) {
+    var jsonresponse = JSON.parse(response);
+    console.log(jsonresponse['categories'][0]);
+    var html = new EJS({url: 'index.ejs'}).render(jsonresponse);
+    document.getElementById("detailsPanel").innerHTML += html;
+    //test();
+  });
+
+  </script>
+</body>
+</html>
