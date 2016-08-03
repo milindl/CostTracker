@@ -1,0 +1,8 @@
+
+<% for(var i=0; i!=categories.length; i++) { %>
+  <% var lowerCaseName = categories[i].replace(" ", "").toLowerCase(); %>
+  <label id="<%= lowerCaseName %>" class="catlabel">
+    <input class = "category" type = "radio" name="category" value="<%= lowerCaseName %>" onclick="submitForm('addForm');"/>
+    <%= categories[i] %>
+  </label>
+<% } %>

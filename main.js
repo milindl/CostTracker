@@ -21,10 +21,13 @@ function loadFile(filename, mimetype, cbk) {
 
 }
 
-function loadPartial(templatePath, dataPath, insertionElement) {
+function loadPartial(templatePath, dataPath, insertionElement, customCallback) {
   loadFile(dataPath,"application/json", function(response) {
     var jsonresponse = JSON.parse(response);
     var text = new EJS({url: templatePath}).render(jsonresponse);
-    insertionElement.innerHTML += html;
+    insertionElement.innerHTML += text;
+    if(customCallback) {
+      customCallback(jsonresponse);
+    }
   });
 }

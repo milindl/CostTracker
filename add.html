@@ -2,8 +2,9 @@
 <head>
   <link rel="stylesheet" href="styles/styles.css">
   <script src="main.js"></script>
+  <script type="text/javascript" src="ejs.js"></script>
   <script>
-    window.onload=function() {assignColors(["Category A", "Category B", "Category C", "Category D"]);};
+    window.onload=function() {};
     function submitForm(formId) {
       document.getElementById(formId).submit();
     }
@@ -14,11 +15,16 @@
     <label>Remarks:<br><input type = "text" name="remarks" /></label>
     <label>Amount:<br><input type = "number" name="amount" /></label>
     <label>Category:</label>
-    <label id="categorya" class="catlabel"><input class = "category" type = "radio" name="category" value="categorya" onclick="submitForm('addForm');"/>Category A</label>
+    <!-- <label id="categorya" class="catlabel"><input class = "category" type = "radio" name="category" value="categorya" onclick="submitForm('addForm');"/>Category A</label>
     <label id="categoryb" class="catlabel"><input class = "category" type = "radio" name="category" value="categoryb" onclick="submitForm('addForm');"/>Category B</label>
     <label id="categoryc" class="catlabel"><input class = "category" type = "radio" name="category" value="categoryc" onclick="submitForm('addForm');"/>Category C</label>
-    <label id="categoryd" class="catlabel"><input class = "category" type = "radio" name="category" value="categoryd" onclick="submitForm('addForm');"/>Category D</label>
+    <label id="categoryd" class="catlabel"><input class = "category" type = "radio" name="category" value="categoryd" onclick="submitForm('addForm');"/>Category D</label> -->
     <!-- <input type="submit" value="Add" id="submit"/> -->
   </form>
+  <script>
+    loadPartial("./add.ejs", "./categories.json", document.getElementById("addForm"), function(jsonresponse) {
+      assignColors(jsonresponse['categories']); 
+    });
+  </script>
 </body>
 </html>
