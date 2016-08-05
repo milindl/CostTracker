@@ -53,4 +53,30 @@ input#submit {
 }
 input {
   width:90%;
+  height:2em;
+  font-size:1.9em;
+}
+ul.expense {
+  font-family: Verdana, sans-serif;
+  list-style-type:none;
+  width:100%;
+  margin:0px;
+  padding:0px;
+  li {
+    margin:0px;
+    padding-top:2em;
+    padding-bottom:2em;
+    padding-left:0;
+    padding-right:0;
+    width:100%;
+    text-align:center;
+    border-bottom:1px solid black;
+    span {
+      display: block;
+    }
+    span.amount::before {
+      content: "₹ ";
+    }
+
+  }
 }

@@ -1,6 +1,6 @@
 <% for(var i=0; i<categories.length; i++) { %>
   <% var lowerCasedName = categories[i].replace(" ", "").toLowerCase(); %>
-  <a href="/details?cat=<%= lowerCasedName %>" id="<%= lowerCasedName%>">
+  <a href="/view_specific.html?cat=<%= categories[i] %>" id="<%= lowerCasedName%>">
     <%= categories[i] %>
   </a>
 <% } %>

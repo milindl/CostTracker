@@ -28,7 +28,7 @@ exports.load = function(cback) {
 
 //Let's define some filters
 
-exports.filterCategoryValue = function(rawArray) {
+exports.filterCategoryValue = function(rawArray) { //Returns category:value pairs
   var finalArray = {};
   // console.log(finalArray);
   for(var i=0; i!=rawArray.length; i++) {
@@ -40,6 +40,20 @@ exports.filterCategoryValue = function(rawArray) {
   }
   return finalArray;
 }
+
+exports.filterExpenseCategory = function(rawArray) { //Returns category:Expense object
+  var finalArray = {};
+  // console.log(finalArray);
+  for(var i=0; i!=rawArray.length; i++) {
+    if(!finalArray[rawArray[i]['category']]) {
+      finalArray[rawArray[i]['category']] = [];
+    }
+    finalArray[rawArray[i]['category']].push(rawArray[i]);
+
+  }
+  return finalArray;
+}
+
 // exports.load(function(t) {
 //   console.log(t);
 // })

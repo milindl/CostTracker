@@ -1,0 +1,23 @@
+<html>
+<head>
+  <script src="main.js"></script>
+  <link rel="stylesheet" href="styles/styles.css">
+  <script type="text/javascript" src="ejs.js"></script>
+</head>
+<body>
+
+  <script>
+  loadFile("/load?filter=ExpenseCategory", "application/json", function(response){
+    var jsonresponse = JSON.parse(response);
+    var q = window.location;
+    q = q.toString().split("?cat=")[1];
+    var a = [];
+    if(jsonresponse[q]) a = jsonresponse[q];
+    a = JSON.parse('{ "MainShit":' + JSON.stringify(a) + '}');
+    alert(JSON.stringify(a));
+    var text = new EJS({url: "./view_specific.ejs"}).render(a);
+    document.body.innerHTML += text;
+  });
+  </script>
+</body>
+</html>

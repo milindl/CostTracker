@@ -4,7 +4,7 @@ var url=require("url");
 var expenses = require("../expense.js");
 var backbone = require("./backbone.js");
 var app = express();
-var filters = {"CategoryValue":backbone.filterCategoryValue};
+var filters = {"CategoryValue":backbone.filterCategoryValue, "ExpenseCategory":backbone.filterExpenseCategory};
 app.get("/add", function(req,res) {
   //Need to fetch parameters from request
   var query = url.parse(req.url, true).query;
